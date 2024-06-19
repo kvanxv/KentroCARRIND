@@ -1,19 +1,19 @@
 #pragma once
-#include "include/libs.hpp"
+#include "../include/libs.hpp"
 
 class KentroComputer
 {
 public:
 
     KentroComputer() = default;
-    ~KentroComputer();
+    ~KentroComputer() = default;
 
 
     void KentroComputer_userInterface(); // CLI
 
-    void KentroComputer_run();
+    static void KentroComputer_run();
 
-    double KentroComputer_nonVariableArithmetic(const std::string& Arithmetic_computationInputString); // calculates normal expressions
+    void KentroComputer_nonVariableArithmetic(const std::string& Arithmetic_computationInputString); // calculates normal expressions
 
 
 
@@ -32,6 +32,7 @@ public:
 
 private:
     std::string KentroComputer_computationInputString;
+
 };
 
 

@@ -2,8 +2,7 @@ grammar KentroComputer;
 
 prog:   stat+ ;
 
-stat:   expr NEWLINE                # printExpr
-    |   ID '=' expr NEWLINE         # assign
+stat:   expr (NEWLINE | EOF)               # printExpr
     |   NEWLINE                     # blank
     ;
 

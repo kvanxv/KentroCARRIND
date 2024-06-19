@@ -5,17 +5,28 @@
 
 #include "Kentro.hpp"
 
+void Kentro::Kentro::usersMainMenu()
+{
+    Kentro::printMainMenu();
+
+    int usersOption = Kentro::usersMainMenuOption();
+
+    auto it = KentroComputer_mapOptions.find(usersOption);
+
+    if(it != KentroComputer_mapOptions.end())
+    {
+        auto func = it->second;
+        func();
+    }
+    else if(it == KentroComputer_mapOptions.end())
+    {
+        []() { throw std::runtime_error("Could not find option:"); };
+    }
+    else []() { std::cerr << "ERROR WITH FUNCTION 'usersMainMenu()'"; };
+}
 
 
-/*
-std::unordered_map<int, std::function<KentroComputer()>> Kentro::mainMenuOptionMap =
-        {
-                {1 , KentroComputer::KentroComputer_userInterface}
-        };
-
-*/
-
-void Kentro::Kentro::mainMenu() // really it would return an option so a function lets say
+void Kentro::Kentro::printMainMenu() // really it would return an option so a function lets say
 {
     std::filesystem::path mainMenuExecutableDirectory = std::filesystem::current_path();
     std::filesystem::path mainMenuFileDirectory = mainMenuExecutableDirectory / "data" / "MainMenu.txt";
@@ -38,21 +49,21 @@ void Kentro::Kentro::mainMenu() // really it would return an option so a functio
     }
 
     mainMenuFile.close();
-
-   int usersMainMenuOption = Kentro::usersMainMenuOption();
 }
 
 
 int Kentro::Kentro::usersMainMenuOption()
 {
+    std::string mainMenuOptionString;
     int mainMenuOption {0};
 
-    while(true)
+    while(mainMenuOption == 0)
     {
-        std::cin >> mainMenuOption;
+        std::getline(std::cin, mainMenuOptionString);
 
         try
         {
+            mainMenuOption = std::stoi(mainMenuOptionString);
             if(mainMenuOption > 1)
             {
                 throw std::invalid_argument("Not a applicable option. Choose new option.");
@@ -67,14 +78,9 @@ int Kentro::Kentro::usersMainMenuOption()
     return mainMenuOption;
 }
 
-/*
-std::function<void()> Kentro::mainMenuOption()
-{
-    int returnOption {};
 
-    std::cin >> returnOption;
-
-    //integrate finding the function in map. probably wont use map since then the second optino would be something
-    //differeant like 'Kentro Graph'
-
-}*/
+//////////////////////////////////////////VARIABLES//////////////////////////////////////////
+const std::unordered_map<int, std::function<void()>> Kentro::Kentro::KentroComputer_mapOptions
+        {
+                {1, KentroComputer::KentroComputer_run}
+        };
