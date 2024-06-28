@@ -7,23 +7,6 @@
 #include "TestKentro.hpp"
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 void Test::TestKentroComputer::tokenOutput()
 {
     antlr4::ANTLRInputStream input("(344(345))");

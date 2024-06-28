@@ -1,3 +1,4 @@
+#pragma once
 #include "../../grammar/libsAntlr4.hpp"
 
 class EvaluatorKentroComputer : public KentroComputerBaseVisitor

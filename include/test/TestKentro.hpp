@@ -3,11 +3,6 @@
 
 namespace Test
 {
-    class TestKentroCARRIND
-    {
-    public:
-
-    };
 
 
     class TestKentroComputer

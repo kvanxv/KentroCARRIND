@@ -1,3 +1,4 @@
+#include "../../grammar/libsAntlr4.hpp"
 #include "EvaluatorKentroComputer.hpp"
 #include "antlr4-runtime.h"
 /*antlrcpp::Any EvaluatorKentroComputer::visitAssign(KentroComputerParser::AssignContext* ctx) {}
@@ -7,6 +8,7 @@ antlrcpp::Any EvaluatorKentroComputer::visitBlank(KentroComputerParser::BlankCon
 antlrcpp::Any EvaluatorKentroComputer::visitAtomic(KentroComputerParser::AtomicContext* ctx) {}
 
 antlrcpp::Any EvaluatorKentroComputer::visitUnaryMinus(KentroComputerParser::UnaryMinusContext* ctx) {}*/
+
 
 std::any EvaluatorKentroComputer::visitPower(KentroComputerParser::PowerContext* ctxPower)
 {
@@ -24,9 +26,6 @@ std::any EvaluatorKentroComputer::visitIdImplicitMultiply(KentroComputerParser::
 
     return number * parenthesisExpr;
 }
-
-
-#include "../../grammar/libsAntlr4.hpp"
 
 
 std::any EvaluatorKentroComputer::visitImplicitMultiply (KentroComputerParser::ImplicitMultiplyContext* ctxImplicitMultiply)
