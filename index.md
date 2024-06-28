@@ -1,3 +1,15 @@
+# Kentro Computer Showcased
+
+![KentroComputer](screenshots/kentroExample.png)
+
+
+# TI CAS Comparison
+
+![TI Example](screenshots/KentroComputer_TI.png)
+
+
+
+
 ## KENTRO CARRIND UNDER CONSTRUCTION!
 
 
