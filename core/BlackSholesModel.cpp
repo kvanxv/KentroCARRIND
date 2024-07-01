@@ -8,8 +8,15 @@
 
 double KentroFiscus::BlackSholesModel::calculateIntermediateD1()
 {
-    return d1 = (log(currentStockPrice / strikePrice)) + (interestRate + (std::pow(volatility, 2) / 2) * timeToMaturity)
-                / (volatility * (std::sqrt(timeToMaturity)));
+    double term1 = std::log(currentStockPrice / strikePrice);
+    double term2 = (interestRate + (std::pow(volatility, 2.0) / 2.0)) * timeToMaturity;
+    // Keep as much precision as possible during the calculation
+    double unroundedD1 = (term1 + term2) / (volatility * std::sqrt(timeToMaturity));
+
+    // Replace d1 with the more precise calculation
+    d1 = unroundedD1;
+
+    return d1;
 }
 
 double KentroFiscus::BlackSholesModel::calculateIntermediateD2()
@@ -49,11 +56,21 @@ double KentroFiscus::BlackSholesModel::calculatePutCDFD2() //omega(-d2)
 
 void KentroFiscus::BlackSholesModel::KentroFiscus_inputBlackSholesModelEU()
 {
-    std::cin >> currentStockPrice
-            >> strikePrice
-            >> timeToMaturity
-            >> interestRate
-            >> volatility;
+    std::cout << "Enter CURRENT STOCK PRICE: ";
+    std::cin >> currentStockPrice;
+
+    std::cout << "Enter STRIKE PRICE ";
+    std::cin >> strikePrice;
+
+    std::cout << "Enter TIME TO MATURITY (in years): ";
+    std::cin >> timeToMaturity;
+
+    std::cout << "Enter risk-free INTEREST RATE: ";
+    std::cin >> interestRate;
+
+    std::cout << "Enter the VOLATILITY of the underlying asset: ";
+    std::cin >> volatility;
+    std::cout << '\n';
     calculateIntermediateD1();
     calculateIntermediateD2();
     calculateCallCDFD1();

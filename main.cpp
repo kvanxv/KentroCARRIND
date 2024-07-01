@@ -8,7 +8,7 @@
 #include "include/test/TestKentro.hpp"
 #include "core/KentroFiscus.hpp"
 
-/*int main()
+int main()
 {
     KentroFiscus::BlackSholesModel BSM;
 
@@ -22,12 +22,12 @@
     std::cout << "CALL: " << BSM.calculateCallOptionPrice() << std::endl;
     std::cout << "PUT: " << BSM.calculatePutOptionPrice() << std::endl;
     return 0;
-}*/
+}
 
-int main()
+/*int main()
 {
     Kentro::Kentro::usersMainMenu();
-}
+}*/
 
 
 
