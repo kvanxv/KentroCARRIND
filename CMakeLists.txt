@@ -32,6 +32,8 @@ find_package(Boost REQUIRED COMPONENTS math)
 file(GLOB GENERATED_SRC
         "${CMAKE_CURRENT_SOURCE_DIR}/grammar/*.cpp"
         "${CMAKE_CURRENT_SOURCE_DIR}/grammar/*.h"
+        "${CMAKE_CURRENT_SOURCE_DIR}/include/lexer/*.cpp"
+        "${CMAKE_CURRENT_SOURCE_DIR}/grammar/lexer/*.h"
 )
 
 
@@ -50,6 +52,8 @@ add_executable(KentroCARRIND
         include/test/TestKentro.hpp
         core/BlackSholesModel.cpp
         core/KentroFiscus.hpp
+        include/lexer/SymbolComputation.cpp
+        include/lexer/SymbolComputation.hpp
 )
 
 target_include_directories(KentroCARRIND PRIVATE # the location of ANTLR generated .h files

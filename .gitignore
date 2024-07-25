@@ -1,0 +1,5 @@
+cmake-build*/
+
+*.iml
+.idea/
+.cm/

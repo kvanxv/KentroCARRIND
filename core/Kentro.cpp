@@ -36,6 +36,7 @@ int Kentro::Kentro::usersMainMenuOption() //CHANGED
 
     while(mainMenuOption == 0)
     {
+        std::cout << "<user>";
         std::getline(std::cin, mainMenuOptionString);
 
         try
