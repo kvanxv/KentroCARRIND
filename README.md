@@ -2,6 +2,7 @@
 
 ![KentroComputer](screenshots/kentroExample.png)
 
+![KentroComputer](screenshots/kentroPolynomial.png)
 
 # TI CAS Comparison
 
